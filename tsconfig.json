@@ -1,0 +1,15 @@
+{
+  "extends": "@tsconfig/node20",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "isolatedModules": true,
+    "outDir": "./dist",
+    "paths": {
+      "@constants/*": ["constants/*"],
+      "@functions/*": ["functions/*"],
+      "@models/*": ["models/*"]
+    },
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*"]
+}

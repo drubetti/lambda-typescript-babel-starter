@@ -1,0 +1,58 @@
+{
+  "name": "lambda-typescript-babel-starter",
+  "author": "Daniele Rubetti",
+  "description": "A lambda starter project with TypeScript and Babel",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": "github:drubetti/lambda-typescript-babel-starter",
+  "scripts": {
+    "biome": "npm run biome:lint && npm run biome:write",
+    "biome:check": "biome check .",
+    "biome:format": "biome format --write .",
+    "biome:lint": "biome lint .",
+    "biome:write": "biome check --write .",
+    "build": "npm run build:js",
+    "build:js": "babel src --out-dir dist --extensions \".ts\" --ignore \"src/**/*.test.ts\" --no-copy-ignored",
+    "jest": "jest --silent --bail --verbose --expand --passWithNoTests src/**/*.test.ts",
+    "prepare": "husky",
+    "start": "npm run build && serverless offline start --noTimeout --stage=local",
+    "test": "npm run type-check && npm run jest",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
+    "@babel/plugin-transform-runtime": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
+    "@biomejs/biome": "1.8.1",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/aws-lambda": "^8.10.138",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^29.7.0",
+    "babel-plugin-source-map-support": "^2.2.0",
+    "babel-plugin-tsconfig-paths-module-resolver": "^1.0.4",
+    "husky": "^9.0.11",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.7",
+    "serverless": "^3.39.0",
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-offline": "^13.6.0",
+    "serverless-plugin-common-excludes": "^4.0.0",
+    "serverless-plugin-include-dependencies": "^6.1.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.24.7",
+    "dotenv": "^16.4.5",
+    "source-map-support": "^0.5.21"
+  },
+  "jest": {
+    "setupFiles": [
+      "./src/utils/loadEnv.ts"
+    ],
+    "testEnvironment": "node"
+  }
+}

@@ -1,0 +1,28 @@
+service: lambda-typescript-babel-starter
+frameworkVersion: "3" # version 4 requires a real AWS account even for running offline
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+
+package:
+  excludeDevDependencies: false # disabled and replaced by "serverless-plugin-include-dependencies"
+  individually: true
+  # Directories and files to include in the deployed package
+  patterns:
+    - dist/**
+
+functions:
+  healthCheck:
+    handler: dist/functions/healthCheck.default
+    events:
+      - httpApi:
+          path: /
+          method: get
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
+  - serverless-plugin-common-excludes # must be before "serverless-plugin-include-dependencies"
+  - serverless-plugin-include-dependencies
