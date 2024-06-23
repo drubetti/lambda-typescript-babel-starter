@@ -11,15 +11,34 @@ package:
   individually: true
   # Directories and files to include in the deployed package
   patterns:
-    - dist/**
+    - '!*.json'
+    - '!.*'
+    - '!.*/**'
+    - '!src/**'
+    - 'dist/**'
+    - '.env.*'
+
+custom:
+  cors:
+    origins: ['*']
+    headers:
+      [
+        'Authorization',
+        'Content-Type',
+        'Session-Id',
+        'X-Amz-Date',
+        'X-Amz-Security-Token',
+        'X-Api-Key',
+      ]
 
 functions:
   healthCheck:
     handler: dist/functions/healthCheck.default
     events:
-      - httpApi:
+      - http:
           path: /
           method: get
+          cors: ${self:custom.cors}
 
 plugins:
   - serverless-dotenv-plugin
