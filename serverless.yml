@@ -1,5 +1,5 @@
 service: lambda-typescript-babel-starter
-frameworkVersion: "3" # version 4 requires a real AWS account even for running offline
+frameworkVersion: '3' # version 4 requires a real AWS account even for running offline
 useDotenv: true
 
 provider:

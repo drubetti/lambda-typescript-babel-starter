@@ -15,6 +15,7 @@
     "build:js": "babel src --out-dir dist --extensions \".ts\" --ignore \"src/**/*.test.ts\" --no-copy-ignored",
     "jest": "jest --silent --bail --verbose --expand --passWithNoTests src/**/*.test.ts",
     "prepare": "husky",
+    "prettier": "prettier \"{./**/*.html,./**/*.css,./**/*.scss,./**/*.md,./**/*.yaml,./**/*.yml}\" --write",
     "start": "npm run build && serverless offline start --noTimeout --stage=local",
     "test": "npm run type-check && npm run jest",
     "type-check": "tsc --noEmit"
@@ -47,6 +48,7 @@
   "dependencies": {
     "@babel/runtime": "^7.24.7",
     "dotenv": "^16.4.5",
+    "prettier": "3.3.2",
     "source-map-support": "^0.5.21"
   },
   "jest": {
