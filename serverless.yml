@@ -4,7 +4,7 @@ useDotenv: true
 
 provider:
   name: aws
-  runtime: nodejs20.x
+  runtime: nodejs22.x
 
 package:
   excludeDevDependencies: false # disabled and replaced by "serverless-plugin-include-dependencies"

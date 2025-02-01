@@ -2,7 +2,7 @@
 
 ### Requirements
 
-- _Node.js v20_ or _Node Version Manager_ (`nvm`).
+- _Node.js v22_ or _Node Version Manager_ (`nvm`).
 
 ### Setup
 
