@@ -30,7 +30,7 @@
     "@tsconfig/node22": "22.0.1",
     "@types/aws-lambda": "^8.10.148",
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.13.14",
+    "@types/node": "^22.14.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^29.7.0",
     "babel-plugin-source-map-support": "^2.2.0",
